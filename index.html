@@ -18,6 +18,10 @@
       background: #fdf4ff;
       color: #1e1b4b;
       overflow-x: hidden;
+      padding-bottom: 72px;
+    }
+    @media (min-width: 768px) {
+      body { padding-bottom: 0; }
     }
     h1, h2, h3, .font-display {
       font-family: 'Fredoka', sans-serif;
@@ -26,10 +30,10 @@
       background: radial-gradient(circle at 20% 20%, #f0abfc 0%, #c084fc 35%, #581c87 100%);
     }
     .glass-card {
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.75);
       box-shadow: 0 20px 40px -15px rgba(88, 28, 135, 0.18);
     }
     .bubble {
@@ -54,20 +58,11 @@
       0%, 100% { transform: translateX(0) translateY(0); }
       50% { transform: translateX(-12px) translateY(-4px); }
     }
-    .drum-spin {
-      animation: spinSlow 9s linear infinite;
-    }
-    .drum-spin-fast {
-      animation: spinSlow 1.4s linear infinite;
-    }
-    .water-wave {
-      animation: wave 3s ease-in-out infinite;
-    }
+    .drum-spin { animation: spinSlow 9s linear infinite; }
+    .drum-spin-fast { animation: spinSlow 1.4s linear infinite; }
+    .water-wave { animation: wave 3s ease-in-out infinite; }
     .text-outline {
       text-shadow: 0 3px 0 #3b0764, 0 6px 15px rgba(59, 7, 100, 0.35);
-    }
-    input[type="range"] {
-      accent-color: #ec4899;
     }
   </style>
 </head>
@@ -76,10 +71,10 @@
   <!-- Floating Bubbles Container -->
   <div id="bubbles-layer" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
 
-  <!-- Sticky Navigation -->
-  <nav class="sticky top-0 z-50 bg-purple-950/90 backdrop-blur-md border-b border-pink-400/20 text-white">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2.5">
+  <!-- Sticky Navigation with Call, WhatsApp & Location Icons -->
+  <nav class="sticky top-0 z-50 bg-purple-950/95 backdrop-blur-md border-b border-pink-400/20 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-2">
+      <a href="#" class="flex items-center gap-2.5 shrink-0">
         <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-pink-500 to-fuchsia-400 flex items-center justify-center shadow-lg shadow-pink-500/30">
           <svg class="w-6 h-6 text-white drum-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
             <circle cx="12" cy="12" r="9"/>
@@ -88,19 +83,37 @@
           </svg>
         </div>
         <div>
-          <span class="font-display text-lg sm:text-xl tracking-wide font-bold block leading-none">FRESH & BRIGHT</span>
+          <span class="font-display text-base sm:text-xl tracking-wide font-bold block leading-none">FRESH & BRIGHT</span>
           <span class="text-[10px] uppercase tracking-[0.2em] text-pink-300 font-semibold">Laundrymart</span>
         </div>
       </a>
-      <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-purple-100">
-        <a href="#pricing" class="hover:text-pink-300 transition">Basket Prices</a>
-        <a href="#visualizer" class="hover:text-pink-300 transition">Basket Size Tester</a>
-        <a href="#calculator" class="hover:text-pink-300 transition">Price Calculator</a>
-        <a href="#stain-guide" class="hover:text-pink-300 transition">Stain Lab</a>
+
+      <div class="hidden lg:flex items-center gap-6 text-sm font-semibold text-purple-100">
+        <a href="#pricing" class="hover:text-pink-300 transition">Prices</a>
+        <a href="#visualizer" class="hover:text-pink-300 transition">Basket Measurer</a>
+        <a href="#calculator" class="hover:text-pink-300 transition">Calculator</a>
+        <a href="#location" class="hover:text-pink-300 transition">Location</a>
       </div>
-      <a href="tel:62680349" class="bg-gradient-to-r from-pink-500 to-fuchsia-600 hover:from-pink-400 hover:to-fuchsia-500 text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg shadow-pink-500/30 flex items-center gap-1.5 transition transform active:scale-95">
-        <span>📞</span> 62680349
-      </a>
+
+      <!-- Direct Action Buttons (Call, WhatsApp, Location) -->
+      <div class="flex items-center gap-2">
+        <!-- Call Button -->
+        <a href="tel:+26662680349" title="Call 62680349" class="bg-pink-600 hover:bg-pink-500 text-white text-xs font-bold px-3 py-2.5 rounded-full shadow-lg flex items-center gap-1.5 transition transform active:scale-95">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+          <span class="hidden sm:inline">62680349</span>
+        </a>
+
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/26662680349?text=Hello%20Fresh%20%26%20Bright%20Laundrymart!%20I%20would%20like%20to%20inquire%20about%20laundry%20services." target="_blank" rel="noopener" title="Chat on WhatsApp" class="bg-emerald-500 hover:bg-emerald-400 text-purple-950 text-xs font-extrabold px-3 py-2.5 rounded-full shadow-lg flex items-center gap-1.5 transition transform active:scale-95">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.03 2c-5.52 0-10 4.48-10 10 0 1.76.46 3.48 1.34 5L2 22l5.15-1.35c1.48.81 3.16 1.24 4.88 1.24h.01c5.52 0 10-4.48 10-10 0-2.67-1.04-5.18-2.93-7.07A9.93 9.93 0 0012.03 2zm5.82 14.28c-.25.7-1.44 1.34-1.99 1.42-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.92-4.29-5.07-4.49-.15-.2-1.21-1.61-1.21-3.07 0-1.46.76-2.18 1.03-2.48.27-.3.59-.37.79-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.25.6.85 2.07.92 2.22.08.15.13.33.03.53-.1.2-.15.33-.3.5-.15.18-.31.4-.45.53-.15.15-.3.31-.13.61.18.3.78 1.29 1.68 2.09 1.15 1.03 2.13 1.35 2.43 1.5.3.15.48.13.65-.08.18-.2.75-.88.95-1.18.2-.3.4-.25.67-.15.28.1 1.75.83 2.05.98.3.15.5.22.57.35.08.12.08.72-.17 1.42z"/></svg>
+          <span class="hidden sm:inline">WhatsApp</span>
+        </a>
+
+        <!-- Location Jump Button -->
+        <a href="#location" title="Our Location" class="bg-white/15 hover:bg-white/25 text-white p-2.5 rounded-full transition">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+        </a>
+      </div>
     </div>
   </nav>
 
@@ -121,9 +134,20 @@
         <p class="font-display text-xl sm:text-2xl text-pink-100 italic mt-4 mb-6">
           “Clean Clothes... A Brighter You!”
         </p>
-        <p class="text-purple-100/90 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-          Not sure which basket size your laundry fits into? Use our interactive <strong>3D Basket Measurer</strong> & <strong>Instant Price Calculator</strong> below, then send your order straight to WhatsApp in one tap.
-        </p>
+
+        <!-- Quick Contact Pills in Hero -->
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 mb-7">
+          <a href="tel:+26662680349" class="inline-flex items-center gap-2 bg-purple-950/80 hover:bg-purple-950 border border-pink-300/40 px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
+            <span>📞</span> Call: 62680349
+          </a>
+          <a href="https://wa.me/26662680349?text=Hello%20Fresh%20%26%20Bright%20Laundrymart!" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-emerald-500/90 hover:bg-emerald-400 text-purple-950 px-4 py-2 rounded-full text-xs sm:text-sm font-extrabold transition">
+            <span>💬</span> WhatsApp: 62680349
+          </a>
+          <a href="#location" class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition">
+            <span>📍</span> Find Location
+          </a>
+        </div>
+
         <div class="flex flex-col sm:flex-row gap-3.5 justify-center lg:justify-start">
           <a href="#visualizer" class="bg-white text-purple-950 hover:bg-pink-50 font-extrabold px-7 py-4 rounded-2xl shadow-xl shadow-purple-950/30 transition transform hover:-translate-y-0.5 text-center">
             🧺 Measure My Laundry Load
@@ -151,7 +175,6 @@
           <!-- Washing Machine Door -->
           <div class="relative w-52 h-52 sm:w-56 sm:h-56 mx-auto rounded-full bg-gradient-to-tr from-slate-300 via-white to-slate-200 p-3 shadow-inner border-4 border-purple-200 flex items-center justify-center">
             <div id="machine-drum" class="w-full h-full rounded-full bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-700 overflow-hidden relative flex items-center justify-center shadow-inner drum-spin">
-              <!-- Water swirl -->
               <div class="absolute inset-x-0 bottom-0 h-1/2 bg-cyan-300/40 rounded-t-full water-wave"></div>
               <span class="text-4xl select-none">👕</span>
               <span class="text-3xl select-none -ml-2 mt-6">👖</span>
@@ -159,19 +182,12 @@
             </div>
           </div>
 
-          <!-- Interactive Machine Controls -->
           <div class="mt-5 text-center">
             <p class="text-xs font-bold uppercase tracking-wider text-purple-700 mb-2">Tap to Test Wash Cycle</p>
             <div class="grid grid-cols-3 gap-2">
-              <button onclick="setCycle('GENTLE', 'M70.00', false)" class="cycle-btn bg-purple-100 hover:bg-pink-500 hover:text-white text-purple-900 font-bold text-xs py-2 rounded-xl transition">
-                Small
-              </button>
-              <button onclick="setCycle('POWER WASH', 'M90.00', true)" class="cycle-btn bg-purple-100 hover:bg-pink-500 hover:text-white text-purple-900 font-bold text-xs py-2 rounded-xl transition">
-                Medium
-              </button>
-              <button onclick="setCycle('TURBO SPIN', 'M120.00', true)" class="cycle-btn bg-purple-100 hover:bg-pink-500 hover:text-white text-purple-900 font-bold text-xs py-2 rounded-xl transition">
-                Large
-              </button>
+              <button onclick="setCycle('GENTLE', 'M70.00', false)" class="bg-purple-100 hover:bg-pink-500 hover:text-white text-purple-900 font-bold text-xs py-2 rounded-xl transition">Small</button>
+              <button onclick="setCycle('POWER WASH', 'M90.00', true)" class="bg-purple-100 hover:bg-pink-500 hover:text-white text-purple-900 font-bold text-xs py-2 rounded-xl transition">Medium</button>
+              <button onclick="setCycle('TURBO SPIN', 'M120.00', true)" class="bg-purple-100 hover:bg-pink-500 hover:text-white text-purple-900 font-bold text-xs py-2 rounded-xl transition">Large</button>
             </div>
           </div>
         </div>
@@ -182,7 +198,6 @@
   <!-- Official Basket Pricing Cards -->
   <section id="pricing" class="max-w-6xl mx-auto px-4 -mt-10 relative z-20">
     <div class="grid md:grid-cols-3 gap-6">
-      <!-- Small Basket -->
       <div class="glass-card rounded-3xl p-6 border-2 border-purple-200 hover:border-pink-400 transition transform hover:-translate-y-1">
         <div class="flex items-center justify-between mb-3">
           <span class="bg-purple-100 text-purple-800 text-xs font-extrabold uppercase px-3 py-1 rounded-full">Light Load</span>
@@ -203,7 +218,6 @@
         </button>
       </div>
 
-      <!-- Medium Basket -->
       <div class="glass-card rounded-3xl p-6 border-2 border-pink-500 shadow-2xl shadow-pink-500/15 relative transform md:-translate-y-2">
         <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-pink-500 to-purple-700 text-white text-[11px] font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full shadow">
           Most Popular
@@ -227,7 +241,6 @@
         </button>
       </div>
 
-      <!-- Large Basket -->
       <div class="glass-card rounded-3xl p-6 border-2 border-purple-200 hover:border-pink-400 transition transform hover:-translate-y-1">
         <div class="flex items-center justify-between mb-3">
           <span class="bg-cyan-100 text-cyan-800 text-xs font-extrabold uppercase px-3 py-1 rounded-full">Family / Bulk</span>
@@ -261,23 +274,16 @@
     </div>
 
     <div class="glass-card rounded-3xl p-6 sm:p-8 grid lg:grid-cols-12 gap-8 items-center">
-      <!-- Item Counters -->
-      <div class="lg:col-span-7 grid sm:grid-cols-2 gap-3.5" id="clothes-grid">
-        <!-- Populated by JS -->
-      </div>
+      <div class="lg:col-span-7 grid sm:grid-cols-2 gap-3.5" id="clothes-grid"></div>
 
-      <!-- Live Visual Basket Gauge -->
       <div class="lg:col-span-5 bg-gradient-to-b from-purple-950 to-purple-900 text-white rounded-3xl p-6 text-center shadow-xl relative overflow-hidden">
         <div class="flex justify-between items-center text-xs font-bold text-pink-300 mb-3">
           <span>LIVE BASKET METER</span>
           <button onclick="resetVisualizer()" class="underline hover:text-white">Reset All</button>
         </div>
 
-        <!-- Animated Basket Container -->
         <div class="relative w-44 h-48 mx-auto my-4 border-4 border-t-0 border-pink-300/80 rounded-b-3xl bg-purple-950/60 overflow-hidden flex items-end justify-center shadow-inner">
-          <!-- Basket Grid Pattern -->
           <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#f472b6 2px, transparent 2px); background-size: 14px 14px;"></div>
-          <!-- Fill Bar -->
           <div id="basket-fill" class="w-full bg-gradient-to-t from-pink-500 via-fuchsia-400 to-cyan-300 transition-all duration-500 ease-out relative" style="height: 8%;">
             <div class="w-full h-2 bg-white/60"></div>
           </div>
@@ -301,24 +307,21 @@
     </div>
   </section>
 
-  <!-- INTERACTIVE TOOL 2: Full Price Calculator & 1-Tap WhatsApp Checkout -->
+  <!-- INTERACTIVE TOOL 2: Full Price Calculator & 1-Tap WhatsApp / Call Checkout -->
   <section id="calculator" class="max-w-6xl mx-auto px-4 pt-20 relative z-10">
     <div class="text-center max-w-2xl mx-auto mb-10">
       <span class="text-xs font-extrabold uppercase tracking-widest text-purple-700 bg-purple-100 px-3.5 py-1.5 rounded-full">Instant Quote & Booking</span>
       <h2 class="font-display text-3xl sm:text-4xl font-bold text-purple-950 mt-3">Laundry Cost Calculator</h2>
       <p class="text-slate-600 text-sm sm:text-base mt-2">
-        Combine multiple baskets, select optional care extras, and book directly on WhatsApp.
+        Combine multiple baskets, select optional care extras, and book directly on WhatsApp or by phone call.
       </p>
     </div>
 
     <div class="glass-card rounded-3xl p-6 sm:p-8 grid lg:grid-cols-12 gap-8">
-      <!-- Left Controls -->
       <div class="lg:col-span-7 space-y-6">
-        <!-- Basket Quantity Steppers -->
         <div>
           <h3 class="font-display text-lg font-bold text-purple-950 mb-3">1. Choose Number of Baskets</h3>
           <div class="space-y-3">
-            <!-- Small -->
             <div class="flex items-center justify-between bg-white p-4 rounded-2xl border border-purple-100 shadow-sm">
               <div>
                 <p class="font-bold text-purple-950">Small Basket</p>
@@ -330,7 +333,7 @@
                 <button onclick="updateBasketQty('small', 1)" class="w-9 h-9 rounded-xl bg-pink-500 hover:bg-pink-600 font-bold text-white">+</button>
               </div>
             </div>
-            <!-- Medium -->
+
             <div class="flex items-center justify-between bg-white p-4 rounded-2xl border border-purple-100 shadow-sm">
               <div>
                 <p class="font-bold text-purple-950">Medium Basket</p>
@@ -342,7 +345,7 @@
                 <button onclick="updateBasketQty('medium', 1)" class="w-9 h-9 rounded-xl bg-pink-500 hover:bg-pink-600 font-bold text-white">+</button>
               </div>
             </div>
-            <!-- Large -->
+
             <div class="flex items-center justify-between bg-white p-4 rounded-2xl border border-purple-100 shadow-sm">
               <div>
                 <p class="font-bold text-purple-950">Large Basket</p>
@@ -357,7 +360,6 @@
           </div>
         </div>
 
-        <!-- Care Preferences -->
         <div>
           <h3 class="font-display text-lg font-bold text-purple-950 mb-3">2. Free Wash Preferences</h3>
           <div class="grid sm:grid-cols-3 gap-2.5">
@@ -376,7 +378,6 @@
           </div>
         </div>
 
-        <!-- Customer Details -->
         <div>
           <h3 class="font-display text-lg font-bold text-purple-950 mb-3">3. Your Details</h3>
           <div class="grid sm:grid-cols-2 gap-3">
@@ -386,11 +387,10 @@
               <option value="Request Pickup & Delivery">🚗 Request Pickup & Delivery</option>
             </select>
           </div>
-          <input type="text" id="cust-notes" placeholder="Optional notes (e.g., location, stubborn stain on white shirt...)" class="mt-3 w-full px-4 py-3 rounded-xl bg-white border border-purple-200 text-sm focus:outline-none focus:border-pink-500">
+          <input type="text" id="cust-notes" placeholder="Optional notes (e.g., your area for pickup, stubborn stain...)" class="mt-3 w-full px-4 py-3 rounded-xl bg-white border border-purple-200 text-sm focus:outline-none focus:border-pink-500">
         </div>
       </div>
 
-      <!-- Right Receipt Summary -->
       <div class="lg:col-span-5 bg-purple-950 text-white rounded-3xl p-6 sm:p-7 flex flex-col justify-between shadow-2xl">
         <div>
           <div class="flex items-center justify-between border-b border-white/15 pb-4">
@@ -401,9 +401,7 @@
             <span class="text-3xl">🧾</span>
           </div>
 
-          <div id="receipt-lines" class="py-5 space-y-3 text-sm border-b border-white/15 min-h-[130px]">
-            <!-- Populated by JS -->
-          </div>
+          <div id="receipt-lines" class="py-5 space-y-3 text-sm border-b border-white/15 min-h-[130px]"></div>
 
           <div class="py-5 flex items-baseline justify-between">
             <span class="text-purple-200 font-semibold">Estimated Total</span>
@@ -413,10 +411,12 @@
 
         <div class="space-y-3">
           <button onclick="sendWhatsAppOrder()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-300 hover:to-teal-400 text-purple-950 font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 transition transform active:scale-95">
-            <span>💬 Send Order on WhatsApp (62680349)</span>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.03 2c-5.52 0-10 4.48-10 10 0 1.76.46 3.48 1.34 5L2 22l5.15-1.35c1.48.81 3.16 1.24 4.88 1.24h.01c5.52 0 10-4.48 10-10 0-2.67-1.04-5.18-2.93-7.07A9.93 9.93 0 0012.03 2zm5.82 14.28c-.25.7-1.44 1.34-1.99 1.42-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.69-.63-2.98-1.29-4.92-4.29-5.07-4.49-.15-.2-1.21-1.61-1.21-3.07 0-1.46.76-2.18 1.03-2.48.27-.3.59-.37.79-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.25.6.85 2.07.92 2.22.08.15.13.33.03.53-.1.2-.15.33-.3.5-.15.18-.31.4-.45.53-.15.15-.3.31-.13.61.18.3.78 1.29 1.68 2.09 1.15 1.03 2.13 1.35 2.43 1.5.3.15.48.13.65-.08.18-.2.75-.88.95-1.18.2-.3.4-.25.67-.15.28.1 1.75.83 2.05.98.3.15.5.22.57.35.08.12.08.72-.17 1.42z"/></svg>
+            <span>Send Order on WhatsApp</span>
           </button>
-          <a href="tel:62680349" class="w-full py-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition">
-            <span>📞 Call Directly: 62680349</span>
+          <a href="tel:+26662680349" class="w-full py-3.5 rounded-2xl bg-pink-600 hover:bg-pink-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+            <span>Call Now: 62680349</span>
           </a>
         </div>
       </div>
@@ -424,18 +424,69 @@
   </section>
 
   <!-- INTERACTIVE TOOL 3: Stain & Fabric Care Lab -->
-  <section id="stain-guide" class="max-w-6xl mx-auto px-4 pt-20 pb-20 relative z-10">
+  <section id="stain-guide" class="max-w-6xl mx-auto px-4 pt-20 relative z-10">
     <div class="text-center max-w-2xl mx-auto mb-10">
       <span class="text-xs font-extrabold uppercase tracking-widest text-pink-600 bg-pink-100 px-3.5 py-1.5 rounded-full">Interactive Stain Doctor</span>
       <h2 class="font-display text-3xl sm:text-4xl font-bold text-purple-950 mt-3">Tap a Stain to See How We Treat It</h2>
     </div>
 
     <div class="glass-card rounded-3xl p-6 sm:p-8">
-      <div class="flex flex-wrap justify-center gap-2.5 mb-6" id="stain-tabs">
-        <!-- Populated by JS -->
+      <div class="flex flex-wrap justify-center gap-2.5 mb-6" id="stain-tabs"></div>
+      <div id="stain-result" class="bg-gradient-to-r from-purple-950 to-fuchsia-950 text-white rounded-2xl p-6 sm:p-8 max-w-3xl mx-auto transition-all"></div>
+    </div>
+  </section>
+
+  <!-- NEW SECTION: Location, Contact & Direct Links -->
+  <section id="location" class="max-w-6xl mx-auto px-4 pt-20 pb-20 relative z-10">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <span class="text-xs font-extrabold uppercase tracking-widest text-purple-700 bg-purple-100 px-3.5 py-1.5 rounded-full">Visit or Reach Us</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-purple-950 mt-3">Location & Direct Contact</h2>
+    </div>
+
+    <div class="glass-card rounded-3xl p-6 sm:p-8 grid md:grid-cols-12 gap-6 items-center">
+      <!-- Left Contact & Location Cards -->
+      <div class="md:col-span-6 space-y-4">
+        <div class="bg-white rounded-2xl p-5 border border-purple-100 shadow-sm flex items-start gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-pink-100 text-pink-600 flex items-center justify-center shrink-0 text-2xl">📍</div>
+          <div>
+            <h3 class="font-display text-lg font-bold text-purple-950">Fresh & Bright Laundrymart</h3>
+            <!-- EDIT YOUR EXACT STREET / SHOP ADDRESS BELOW -->
+            <p class="text-sm text-slate-600 mt-0.5">Maseru, Lesotho (Tap below for directions or WhatsApp us your pin for pickup)</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=Maseru+Lesotho" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 bg-purple-950 hover:bg-pink-600 text-white text-xs font-bold px-3.5 py-2 rounded-xl transition">
+                <span>🗺️</span> Open in Google Maps
+              </a>
+              <a href="https://wa.me/26662680349?text=Hello%20Fresh%20%26%20Bright!%20Please%20share%20your%20exact%20location%20pin." target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 bg-emerald-500 hover:bg-emerald-400 text-purple-950 text-xs font-extrabold px-3.5 py-2 rounded-xl transition">
+                <span>📌</span> Ask for Live Pin on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <a href="tel:+26662680349" class="bg-gradient-to-br from-pink-500 to-purple-800 text-white rounded-2xl p-4 shadow-lg hover:opacity-95 transition block">
+            <span class="text-2xl block mb-1">📞</span>
+            <span class="text-[11px] uppercase tracking-wider text-pink-200 font-bold block">Tap to Call</span>
+            <span class="font-display text-lg font-bold">62680349</span>
+          </a>
+
+          <a href="https://wa.me/26662680349?text=Hello%20Fresh%20%26%20Bright%20Laundrymart!" target="_blank" rel="noopener" class="bg-gradient-to-br from-emerald-500 to-teal-600 text-purple-950 rounded-2xl p-4 shadow-lg hover:opacity-95 transition block">
+            <span class="text-2xl block mb-1">💬</span>
+            <span class="text-[11px] uppercase tracking-wider text-purple-950/80 font-extrabold block">Tap for WhatsApp</span>
+            <span class="font-display text-lg font-extrabold">62680349</span>
+          </a>
+        </div>
       </div>
-      <div id="stain-result" class="bg-gradient-to-r from-purple-950 to-fuchsia-950 text-white rounded-2xl p-6 sm:p-8 max-w-3xl mx-auto transition-all">
-        <!-- Populated by JS -->
+
+      <!-- Right Interactive Map Embed -->
+      <div class="md:col-span-6 h-64 sm:h-72 rounded-2xl overflow-hidden border-2 border-purple-200 shadow-inner bg-purple-100">
+        <iframe
+          title="Fresh & Bright Laundrymart Location"
+          class="w-full h-full border-0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=27.4500%2C-29.3400%2C27.5200%2C-29.2900&layer=mapnik&marker=-29.3151%2C27.4869">
+        </iframe>
       </div>
     </div>
   </section>
@@ -447,12 +498,29 @@
         <h3 class="font-display text-2xl font-bold text-white">FRESH & BRIGHT LAUNDRYMART</h3>
         <p class="text-pink-300 italic text-sm mt-1">Clean Clothes... A Brighter You!</p>
       </div>
-      <div class="flex flex-col sm:items-end gap-1">
-        <p class="text-xs uppercase tracking-wider text-purple-300">Call or WhatsApp Us Anytime</p>
-        <a href="tel:62680349" class="font-display text-2xl font-bold text-white hover:text-pink-300 transition">📞 62680349 (c/w)</a>
+      <div class="flex flex-wrap justify-center sm:justify-end gap-3">
+        <a href="tel:+26662680349" class="bg-pink-600 hover:bg-pink-500 text-white font-bold text-sm px-4 py-2.5 rounded-full transition">
+          📞 Call: 62680349
+        </a>
+        <a href="https://wa.me/26662680349" target="_blank" rel="noopener" class="bg-emerald-500 hover:bg-emerald-400 text-purple-950 font-extrabold text-sm px-4 py-2.5 rounded-full transition">
+          💬 WhatsApp: 62680349
+        </a>
       </div>
     </div>
   </footer>
+
+  <!-- Mobile Bottom Quick-Action Bar (Call, WhatsApp, Location) -->
+  <div class="fixed bottom-0 inset-x-0 z-50 md:hidden bg-purple-950/95 backdrop-blur-md border-t border-pink-400/30 px-3 py-2.5 grid grid-cols-3 gap-2">
+    <a href="tel:+26662680349" class="bg-pink-600 text-white font-bold text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5 shadow">
+      <span>📞</span> Call Now
+    </a>
+    <a href="https://wa.me/26662680349?text=Hello%20Fresh%20%26%20Bright%20Laundrymart!" target="_blank" rel="noopener" class="bg-emerald-400 text-purple-950 font-extrabold text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5 shadow">
+      <span>💬</span> WhatsApp
+    </a>
+    <a href="#location" class="bg-white/15 text-white font-bold text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5">
+      <span>📍</span> Location
+    </a>
+  </div>
 
   <script>
     // 1. Floating Bubbles Generator
@@ -516,7 +584,6 @@
         totalKg += i.kg * i.count;
       });
 
-      // 100 points = 1 full Large Basket
       const pct = Math.min(100, Math.round(totalPoints));
       document.getElementById('basket-fill').style.height = `${Math.max(6, pct)}%`;
       document.getElementById('fill-percent').textContent = `${pct}%`;
@@ -663,7 +730,6 @@
       if (notes) msg += `*Notes:* ${notes}\n`;
       msg += `\n*Estimated Total:* ${total}`;
 
-      // Uses Lesotho (+266) format for 62680349; opens WhatsApp directly
       const waUrl = `https://wa.me/26662680349?text=${encodeURIComponent(msg)}`;
       window.open(waUrl, '_blank');
     }
@@ -722,10 +788,9 @@
       `;
     }
 
-    // Initialize everything
     renderVisualizer();
     syncQtyUI();
     selectStain(0);
   </script>
 </body>
-  </html>
+</html>
