@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fresh & Bright Laundrymart | Clean Clothes... A Brighter You!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand-purple: #3b0764;
+      --brand-magenta: #ec4899;
+      --brand-pink: #f472b6;
+      --brand-aqua: #06b6d4;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #fdf4ff;
+      color: #1e1b4b;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, .font-display {
+      font-family: 'Fredoka', sans-serif;
+    }
+    .hero-gradient {
+      background: radial-gradient(circle at 20% 20%, #f0abfc 0%, #c084fc 35%, #581c87 100%);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 20px 40px -15px rgba(88, 28, 135, 0.18);
+    }
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.15) 60%, rgba(236,72,153,0.25));
+      box-shadow: inset 0 0 12px rgba(255,255,255,0.8);
+      animation: floatUp linear infinite;
+      pointer-events: none;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0.7); opacity: 0; }
+      15% { opacity: 0.85; }
+      85% { opacity: 0.85; }
+      100% { transform: translateY(-15vh) scale(1.15); opacity: 0; }
+    }
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes wave {
+      0%, 100% { transform: translateX(0) translateY(0); }
+      50% { transform: translateX(-12px) translateY(-4px); }
+    }
+    .drum-spin {
+      animation: spinSlow 9s linear infinite;
+    }
+    .drum-spin-fast {
+      animation: spinSlow 1.4s linear infinite;
+    }
+    .water-wave {
+      animation: wave 3s ease-in-out infinite;
+    }
+    .text-outline {
+      text-shadow: 0 3px 0 #3b0764, 0 6px 15px rgba(59, 7, 100, 0.35);
+    }
+    input[type="range"] {
+      accent-color: #ec4899;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-pink-500 selection:text-white">
+
+  <!-- Floating Bubbles Container -->
+  <div id="bubbles-layer" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
+
+  <!-- Sticky Navigation -->
+  <nav class="sticky top-0 z-50 bg-purple-950/90 backdrop-blur-md border-b border-pink-400/20 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-pink-500 to-fuchsia-400 flex items-center justify-center shadow-lg shadow-pink-500/30">
+          <svg class="w-6 h-6 text-white drum-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 3a9 9 0 0 1 6.36 15.36"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+        </div>
+        <div>
+          <span class="font-display text-lg sm:text-xl tracking-wide font-bold block leading-none">FRESH & BRIGHT</span>
+          <span class="text-[10px] uppercase tracking-[0.2em] text-pink-300 font-semibold">Laundrymart</span>
+        </div>
+      </a>
+      <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-purple-100">
+        <a href="#pricing" class="hover:text-pink-300 transition">Basket Prices</a>
+        <a href="#visualizer" class="hover:text-pink-300 transition">Basket Size Tester</a>
+        <a href="#calculator" class="hover:text-pink-300 transition">Price Calculator</a>
+        <a href="#stain-guide" class="hover:text-pink-300 transition">Stain Lab</a>
+      </div>
+      <a href="tel:62680349" class="bg-gradient-to-r from-pink-500 to-fuchsia-600 hover:from-pink-400 hover:to-fuchsia-500 text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg shadow-pink-500/30 flex items-center gap-1.5 transition transform active:scale-95">
+        <span>📞</span> 62680349
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="relative hero-gradient text-white pt-10 pb-20 px-4 overflow-hidden">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-10 items-center relative z-10">
+      <div class="lg:col-span-7 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 bg-white/15 border border-white/25 backdrop-blur-md px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold mb-5">
+          <span class="w-2 h-2 rounded-full bg-cyan-300 animate-ping"></span>
+          <span>Fast Wash • Deep Freshness • Soft Fold</span>
+        </div>
+        <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight mb-4">
+          <span class="block text-white text-outline">FRESH & BRIGHT</span>
+          <span class="inline-block bg-purple-950 text-pink-300 px-5 py-1.5 rounded-2xl text-2xl sm:text-4xl mt-2 border-2 border-pink-400/50 shadow-xl">
+            LAUNDRYMART
+          </span>
+        </h1>
+        <p class="font-display text-xl sm:text-2xl text-pink-100 italic mt-4 mb-6">
+          “Clean Clothes... A Brighter You!”
+        </p>
+        <p class="text-purple-100/90 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+          Not sure which basket size your laundry fits into? Use our interactive <strong>3D Basket Measurer</strong> & <strong>Instant Price Calculator</strong> below, then send your order straight to WhatsApp in one tap.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3.5 justify-center lg:justify-start">
+          <a href="#visualizer" class="bg-white text-purple-950 hover:bg-pink-50 font-extrabold px-7 py-4 rounded-2xl shadow-xl shadow-purple-950/30 transition transform hover:-translate-y-0.5 text-center">
+            🧺 Measure My Laundry Load
+          </a>
+          <a href="#calculator" class="bg-purple-950/70 hover:bg-purple-950 border border-pink-300/40 text-white font-bold px-7 py-4 rounded-2xl backdrop-blur-md transition text-center">
+            🧮 Open Cost Calculator
+          </a>
+        </div>
+      </div>
+
+      <!-- Interactive Live Washing Machine Widget -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="w-72 sm:w-80 bg-gradient-to-b from-white to-purple-100 rounded-[2.5rem] p-5 shadow-2xl border-4 border-pink-200 text-purple-950 relative">
+          <div class="flex items-center justify-between mb-4 px-2">
+            <div class="flex gap-1.5">
+              <span class="w-3 h-3 rounded-full bg-pink-500"></span>
+              <span class="w-3 h-3 rounded-full bg-purple-400"></span>
+              <span class="w-3 h-3 rounded-full bg-cyan-400"></span>
+            </div>
+            <div id="machine-status" class="bg-purple-950 text-cyan-300 font-mono text-xs px-3 py-1 rounded-lg font-bold tracking-wider">
+              READY • M70-M120
+            </div>
+          </div>
+
+          <!-- Washing Machine Door -->
+          <div class="relative w-52 h-52 sm:w-56 sm:h-56 mx-auto rounded-full bg-gradient-to-tr from-slate-300 via-white to-slate-200 p-3 shadow-inner border-4 border-purple-200 flex items-center justify-center">
+            <div id="machine-drum" class="w-full h-full rounded-full bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-700 overflow-hidden relative flex items-center justify-center shadow-inner drum-spin">
+              <!-- Water swirl -->
+              <div class="absolute inset-x-0 bottom-0 h-1/2 bg-cyan-300/40 rounded-t-full water-wave"></div>
+              <span class="text-4xl select-none">👕</span>
+              <span class="text-3xl select-none -ml-2 mt-6">👖</span>
+              <span class="text-3xl select-none -mt-6">🧦</span>
+            </div>
+          </div>
+
+          <!-- Interactive Machine Controls -->
+          <div class="mt-5 text-center">
+            <p class="text-xs font-bold uppercase tracking-wider text-purple-700 mb-2">Tap to Test Wash Cycle</p>
+            <div class="grid grid-cols-3 gap-2">
+              <button onclick="setCycle('GENTLE', 'M70.00', false)" class="cycle-btn bg-purple-100 hover:bg-pink-500 hover:text-white text-purple-900 font-bold text-xs py-2 rounded-xl transition">
+                Small
+              </button>
+              <button onclick="setCycle('POWER WASH', 'M90.00', true)" class="cycle-btn bg-purple-100 hover:bg-pink-500 hover:text-white text-purple-900 font-bold text-xs py-2 rounded-xl transition">
+                Medium
+              </button>
+              <button onclick="setCycle('TURBO SPIN', 'M120.00', true)" class="cycle-btn bg-purple-100 hover:bg-pink-500 hover:text-white text-purple-900 font-bold text-xs py-2 rounded-xl transition">
+                Large
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Official Basket Pricing Cards -->
+  <section id="pricing" class="max-w-6xl mx-auto px-4 -mt-10 relative z-20">
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Small Basket -->
+      <div class="glass-card rounded-3xl p-6 border-2 border-purple-200 hover:border-pink-400 transition transform hover:-translate-y-1">
+        <div class="flex items-center justify-between mb-3">
+          <span class="bg-purple-100 text-purple-800 text-xs font-extrabold uppercase px-3 py-1 rounded-full">Light Load</span>
+          <span class="text-2xl">🧺</span>
+        </div>
+        <h3 class="font-display text-2xl font-bold text-purple-950">SMALL BASKET</h3>
+        <div class="my-3 flex items-baseline gap-1">
+          <span class="font-display text-4xl font-extrabold text-pink-600">M70.00</span>
+          <span class="text-xs text-purple-600 font-semibold">/ basket</span>
+        </div>
+        <ul class="text-sm text-slate-600 space-y-2 mb-5">
+          <li>✓ Fits approx. <strong>8–12 everyday items</strong></li>
+          <li>✓ Ideal for weekly singles or gym wear</li>
+          <li>✓ Full wash, fresh scent & neat fold</li>
+        </ul>
+        <button onclick="quickSelectBasket('small')" class="w-full py-3 rounded-xl bg-purple-950 hover:bg-pink-600 text-white font-bold text-sm transition">
+          Select Small (M70)
+        </button>
+      </div>
+
+      <!-- Medium Basket -->
+      <div class="glass-card rounded-3xl p-6 border-2 border-pink-500 shadow-2xl shadow-pink-500/15 relative transform md:-translate-y-2">
+        <div class="absolute -top-3.5 right-6 bg-gradient-to-r from-pink-500 to-purple-700 text-white text-[11px] font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full shadow">
+          Most Popular
+        </div>
+        <div class="flex items-center justify-between mb-3">
+          <span class="bg-pink-100 text-pink-700 text-xs font-extrabold uppercase px-3 py-1 rounded-full">Standard Load</span>
+          <span class="text-2xl">🧺🧺</span>
+        </div>
+        <h3 class="font-display text-2xl font-bold text-purple-950">MEDIUM BASKET</h3>
+        <div class="my-3 flex items-baseline gap-1">
+          <span class="font-display text-4xl font-extrabold text-pink-600">M90.00</span>
+          <span class="text-xs text-purple-600 font-semibold">/ basket</span>
+        </div>
+        <ul class="text-sm text-slate-600 space-y-2 mb-5">
+          <li>✓ Fits approx. <strong>13–22 mixed garments</strong></li>
+          <li>✓ Great for couples or 2 weeks of clothes</li>
+          <li>✓ Deep stain pre-check & soft finish</li>
+        </ul>
+        <button onclick="quickSelectBasket('medium')" class="w-full py-3 rounded-xl bg-gradient-to-r from-pink-500 to-purple-800 hover:opacity-95 text-white font-bold text-sm shadow-lg shadow-pink-500/25 transition">
+          Select Medium (M90)
+        </button>
+      </div>
+
+      <!-- Large Basket -->
+      <div class="glass-card rounded-3xl p-6 border-2 border-purple-200 hover:border-pink-400 transition transform hover:-translate-y-1">
+        <div class="flex items-center justify-between mb-3">
+          <span class="bg-cyan-100 text-cyan-800 text-xs font-extrabold uppercase px-3 py-1 rounded-full">Family / Bulk</span>
+          <span class="text-2xl">🧺🧺🧺</span>
+        </div>
+        <h3 class="font-display text-2xl font-bold text-purple-950">LARGE BASKET</h3>
+        <div class="my-3 flex items-baseline gap-1">
+          <span class="font-display text-4xl font-extrabold text-pink-600">M120.00</span>
+          <span class="text-xs text-purple-600 font-semibold">/ basket</span>
+        </div>
+        <ul class="text-sm text-slate-600 space-y-2 mb-5">
+          <li>✓ Fits approx. <strong>23–35+ items & towels</strong></li>
+          <li>✓ Best value per garment for families</li>
+          <li>✓ Heavy-duty wash + extra freshness</li>
+        </ul>
+        <button onclick="quickSelectBasket('large')" class="w-full py-3 rounded-xl bg-purple-950 hover:bg-pink-600 text-white font-bold text-sm transition">
+          Select Large (M120)
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE TOOL 1: Smart Basket Capacity & Measurement Visualizer -->
+  <section id="visualizer" class="max-w-6xl mx-auto px-4 pt-20 relative z-10">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <span class="text-xs font-extrabold uppercase tracking-widest text-pink-600 bg-pink-100 px-3.5 py-1.5 rounded-full">Interactive Measurement Tool</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-purple-950 mt-3">What Size Basket Do You Need?</h2>
+      <p class="text-slate-600 text-sm sm:text-base mt-2">
+        Tap <strong>+</strong> on the items sitting in your laundry hamper right now. Watch the basket fill up in real time to see your exact basket size and estimated weight!
+      </p>
+    </div>
+
+    <div class="glass-card rounded-3xl p-6 sm:p-8 grid lg:grid-cols-12 gap-8 items-center">
+      <!-- Item Counters -->
+      <div class="lg:col-span-7 grid sm:grid-cols-2 gap-3.5" id="clothes-grid">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Live Visual Basket Gauge -->
+      <div class="lg:col-span-5 bg-gradient-to-b from-purple-950 to-purple-900 text-white rounded-3xl p-6 text-center shadow-xl relative overflow-hidden">
+        <div class="flex justify-between items-center text-xs font-bold text-pink-300 mb-3">
+          <span>LIVE BASKET METER</span>
+          <button onclick="resetVisualizer()" class="underline hover:text-white">Reset All</button>
+        </div>
+
+        <!-- Animated Basket Container -->
+        <div class="relative w-44 h-48 mx-auto my-4 border-4 border-t-0 border-pink-300/80 rounded-b-3xl bg-purple-950/60 overflow-hidden flex items-end justify-center shadow-inner">
+          <!-- Basket Grid Pattern -->
+          <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#f472b6 2px, transparent 2px); background-size: 14px 14px;"></div>
+          <!-- Fill Bar -->
+          <div id="basket-fill" class="w-full bg-gradient-to-t from-pink-500 via-fuchsia-400 to-cyan-300 transition-all duration-500 ease-out relative" style="height: 8%;">
+            <div class="w-full h-2 bg-white/60"></div>
+          </div>
+          <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+            <span id="fill-percent" class="font-display text-3xl font-bold drop-shadow">0%</span>
+            <span id="est-weight" class="text-xs font-semibold text-pink-100">0.0 kg est.</span>
+          </div>
+        </div>
+
+        <div class="bg-white/10 rounded-2xl p-4 border border-white/15">
+          <p class="text-xs uppercase tracking-wider text-pink-200 font-semibold">Recommended Tier</p>
+          <h3 id="rec-tier" class="font-display text-2xl font-bold text-white mt-0.5">SMALL BASKET</h3>
+          <p id="rec-price" class="font-display text-3xl font-extrabold text-cyan-300 mt-1">M70.00</p>
+          <p id="rec-note" class="text-xs text-purple-200 mt-1">Add clothes on the left to measure your load.</p>
+        </div>
+
+        <button onclick="applyMeasuredToCalculator()" class="mt-4 w-full py-3.5 rounded-xl bg-gradient-to-r from-pink-500 to-fuchsia-500 hover:from-pink-400 hover:to-fuchsia-400 text-white font-extrabold text-sm shadow-lg transition transform active:scale-95">
+          Send This Load to Order Calculator ↓
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE TOOL 2: Full Price Calculator & 1-Tap WhatsApp Checkout -->
+  <section id="calculator" class="max-w-6xl mx-auto px-4 pt-20 relative z-10">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <span class="text-xs font-extrabold uppercase tracking-widest text-purple-700 bg-purple-100 px-3.5 py-1.5 rounded-full">Instant Quote & Booking</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-purple-950 mt-3">Laundry Cost Calculator</h2>
+      <p class="text-slate-600 text-sm sm:text-base mt-2">
+        Combine multiple baskets, select optional care extras, and book directly on WhatsApp.
+      </p>
+    </div>
+
+    <div class="glass-card rounded-3xl p-6 sm:p-8 grid lg:grid-cols-12 gap-8">
+      <!-- Left Controls -->
+      <div class="lg:col-span-7 space-y-6">
+        <!-- Basket Quantity Steppers -->
+        <div>
+          <h3 class="font-display text-lg font-bold text-purple-950 mb-3">1. Choose Number of Baskets</h3>
+          <div class="space-y-3">
+            <!-- Small -->
+            <div class="flex items-center justify-between bg-white p-4 rounded-2xl border border-purple-100 shadow-sm">
+              <div>
+                <p class="font-bold text-purple-950">Small Basket</p>
+                <p class="text-xs text-pink-600 font-extrabold">M70.00 each</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <button onclick="updateBasketQty('small', -1)" class="w-9 h-9 rounded-xl bg-purple-100 hover:bg-purple-200 font-bold text-purple-950">−</button>
+                <span id="qty-small" class="font-display text-xl font-bold w-6 text-center">0</span>
+                <button onclick="updateBasketQty('small', 1)" class="w-9 h-9 rounded-xl bg-pink-500 hover:bg-pink-600 font-bold text-white">+</button>
+              </div>
+            </div>
+            <!-- Medium -->
+            <div class="flex items-center justify-between bg-white p-4 rounded-2xl border border-purple-100 shadow-sm">
+              <div>
+                <p class="font-bold text-purple-950">Medium Basket</p>
+                <p class="text-xs text-pink-600 font-extrabold">M90.00 each</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <button onclick="updateBasketQty('medium', -1)" class="w-9 h-9 rounded-xl bg-purple-100 hover:bg-purple-200 font-bold text-purple-950">−</button>
+                <span id="qty-medium" class="font-display text-xl font-bold w-6 text-center">1</span>
+                <button onclick="updateBasketQty('medium', 1)" class="w-9 h-9 rounded-xl bg-pink-500 hover:bg-pink-600 font-bold text-white">+</button>
+              </div>
+            </div>
+            <!-- Large -->
+            <div class="flex items-center justify-between bg-white p-4 rounded-2xl border border-purple-100 shadow-sm">
+              <div>
+                <p class="font-bold text-purple-950">Large Basket</p>
+                <p class="text-xs text-pink-600 font-extrabold">M120.00 each</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <button onclick="updateBasketQty('large', -1)" class="w-9 h-9 rounded-xl bg-purple-100 hover:bg-purple-200 font-bold text-purple-950">−</button>
+                <span id="qty-large" class="font-display text-xl font-bold w-6 text-center">0</span>
+                <button onclick="updateBasketQty('large', 1)" class="w-9 h-9 rounded-xl bg-pink-500 hover:bg-pink-600 font-bold text-white">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Care Preferences -->
+        <div>
+          <h3 class="font-display text-lg font-bold text-purple-950 mb-3">2. Free Wash Preferences</h3>
+          <div class="grid sm:grid-cols-3 gap-2.5">
+            <label class="cursor-pointer bg-white border border-purple-100 rounded-xl p-3 flex items-center gap-2.5 text-xs font-semibold text-purple-950">
+              <input type="checkbox" id="pref-scent" checked onchange="recalcTotal()" class="w-4 h-4 accent-pink-500">
+              <span>🌸 Extra Floral Scent</span>
+            </label>
+            <label class="cursor-pointer bg-white border border-purple-100 rounded-xl p-3 flex items-center gap-2.5 text-xs font-semibold text-purple-950">
+              <input type="checkbox" id="pref-separate" checked onchange="recalcTotal()" class="w-4 h-4 accent-pink-500">
+              <span>🎨 Separate Whites</span>
+            </label>
+            <label class="cursor-pointer bg-white border border-purple-100 rounded-xl p-3 flex items-center gap-2.5 text-xs font-semibold text-purple-950">
+              <input type="checkbox" id="pref-sensitive" onchange="recalcTotal()" class="w-4 h-4 accent-pink-500">
+              <span>🧴 Hypoallergenic Wash</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Customer Details -->
+        <div>
+          <h3 class="font-display text-lg font-bold text-purple-950 mb-3">3. Your Details</h3>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <input type="text" id="cust-name" placeholder="Your Name" class="w-full px-4 py-3 rounded-xl bg-white border border-purple-200 text-sm focus:outline-none focus:border-pink-500">
+            <select id="cust-service" onchange="recalcTotal()" class="w-full px-4 py-3 rounded-xl bg-white border border-purple-200 text-sm font-semibold text-purple-950 focus:outline-none focus:border-pink-500">
+              <option value="Drop-off at Laundromat">🏪 Drop-off at Laundromat</option>
+              <option value="Request Pickup & Delivery">🚗 Request Pickup & Delivery</option>
+            </select>
+          </div>
+          <input type="text" id="cust-notes" placeholder="Optional notes (e.g., location, stubborn stain on white shirt...)" class="mt-3 w-full px-4 py-3 rounded-xl bg-white border border-purple-200 text-sm focus:outline-none focus:border-pink-500">
+        </div>
+      </div>
+
+      <!-- Right Receipt Summary -->
+      <div class="lg:col-span-5 bg-purple-950 text-white rounded-3xl p-6 sm:p-7 flex flex-col justify-between shadow-2xl">
+        <div>
+          <div class="flex items-center justify-between border-b border-white/15 pb-4">
+            <div>
+              <span class="text-xs uppercase tracking-widest text-pink-300 font-bold">Fresh & Bright</span>
+              <h3 class="font-display text-2xl font-bold">Order Summary</h3>
+            </div>
+            <span class="text-3xl">🧾</span>
+          </div>
+
+          <div id="receipt-lines" class="py-5 space-y-3 text-sm border-b border-white/15 min-h-[130px]">
+            <!-- Populated by JS -->
+          </div>
+
+          <div class="py-5 flex items-baseline justify-between">
+            <span class="text-purple-200 font-semibold">Estimated Total</span>
+            <span id="grand-total" class="font-display text-4xl font-extrabold text-cyan-300">M90.00</span>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <button onclick="sendWhatsAppOrder()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-300 hover:to-teal-400 text-purple-950 font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 transition transform active:scale-95">
+            <span>💬 Send Order on WhatsApp (62680349)</span>
+          </button>
+          <a href="tel:62680349" class="w-full py-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition">
+            <span>📞 Call Directly: 62680349</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE TOOL 3: Stain & Fabric Care Lab -->
+  <section id="stain-guide" class="max-w-6xl mx-auto px-4 pt-20 pb-20 relative z-10">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <span class="text-xs font-extrabold uppercase tracking-widest text-pink-600 bg-pink-100 px-3.5 py-1.5 rounded-full">Interactive Stain Doctor</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-purple-950 mt-3">Tap a Stain to See How We Treat It</h2>
+    </div>
+
+    <div class="glass-card rounded-3xl p-6 sm:p-8">
+      <div class="flex flex-wrap justify-center gap-2.5 mb-6" id="stain-tabs">
+        <!-- Populated by JS -->
+      </div>
+      <div id="stain-result" class="bg-gradient-to-r from-purple-950 to-fuchsia-950 text-white rounded-2xl p-6 sm:p-8 max-w-3xl mx-auto transition-all">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-purple-950 text-purple-200 py-12 px-4 border-t border-pink-500/20 relative z-10">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+      <div>
+        <h3 class="font-display text-2xl font-bold text-white">FRESH & BRIGHT LAUNDRYMART</h3>
+        <p class="text-pink-300 italic text-sm mt-1">Clean Clothes... A Brighter You!</p>
+      </div>
+      <div class="flex flex-col sm:items-end gap-1">
+        <p class="text-xs uppercase tracking-wider text-purple-300">Call or WhatsApp Us Anytime</p>
+        <a href="tel:62680349" class="font-display text-2xl font-bold text-white hover:text-pink-300 transition">📞 62680349 (c/w)</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 1. Floating Bubbles Generator
+    const bubblesLayer = document.getElementById('bubbles-layer');
+    for (let i = 0; i < 16; i++) {
+      const b = document.createElement('div');
+      b.className = 'bubble';
+      const size = Math.random() * 34 + 14;
+      b.style.width = `${size}px`;
+      b.style.height = `${size}px`;
+      b.style.left = `${Math.random() * 100}%`;
+      b.style.animationDuration = `${Math.random() * 12 + 10}s`;
+      b.style.animationDelay = `${Math.random() * 8}s`;
+      bubblesLayer.appendChild(b);
+    }
+
+    // 2. Hero Washing Machine Demo
+    function setCycle(label, price, fast) {
+      document.getElementById('machine-status').textContent = `${label} • ${price}`;
+      const drum = document.getElementById('machine-drum');
+      drum.className = fast
+        ? 'w-full h-full rounded-full bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-700 overflow-hidden relative flex items-center justify-center shadow-inner drum-spin-fast'
+        : 'w-full h-full rounded-full bg-gradient-to-b from-cyan-400 via-blue-500 to-purple-700 overflow-hidden relative flex items-center justify-center shadow-inner drum-spin';
+    }
+
+    // 3. Basket Measurement Visualizer Data
+    const clothingItems = [
+      { id: 'tshirts', name: 'T-Shirts / Tops', icon: '👕', points: 4, kg: 0.25, count: 0 },
+      { id: 'jeans', name: 'Jeans / Trousers', icon: '👖', points: 8, kg: 0.65, count: 0 },
+      { id: 'towels', name: 'Bath Towels', icon: '🧖', points: 9, kg: 0.70, count: 0 },
+      { id: 'hoodies', name: 'Hoodies / Jackets', icon: '🧥', points: 11, kg: 0.85, count: 0 },
+      { id: 'bedsheets', name: 'Bedsheets / Duvet Cover', icon: '🛏️', points: 15, kg: 1.20, count: 0 },
+      { id: 'undergarments', name: 'Socks / Underwear (Pairs)', icon: '🧦', points: 1.5, kg: 0.08, count: 0 }
+    ];
+
+    let recommendedBasket = 'small';
+
+    function renderVisualizer() {
+      const grid = document.getElementById('clothes-grid');
+      grid.innerHTML = clothingItems.map((item, idx) => `
+        <div class="bg-white rounded-2xl p-3.5 border border-purple-100 flex items-center justify-between shadow-sm">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">${item.icon}</span>
+            <div>
+              <p class="font-bold text-sm text-purple-950 leading-tight">${item.name}</p>
+              <p class="text-[11px] text-slate-500">~${item.kg} kg each</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="changeCloth(${idx}, -1)" class="w-8 h-8 rounded-lg bg-purple-100 hover:bg-purple-200 font-bold text-purple-950">−</button>
+            <span class="font-display font-bold w-5 text-center text-purple-950">${item.count}</span>
+            <button onclick="changeCloth(${idx}, 1)" class="w-8 h-8 rounded-lg bg-pink-500 hover:bg-pink-600 font-bold text-white">+</button>
+          </div>
+        </div>
+      `).join('');
+
+      let totalPoints = 0;
+      let totalKg = 0;
+      clothingItems.forEach(i => {
+        totalPoints += i.points * i.count;
+        totalKg += i.kg * i.count;
+      });
+
+      // 100 points = 1 full Large Basket
+      const pct = Math.min(100, Math.round(totalPoints));
+      document.getElementById('basket-fill').style.height = `${Math.max(6, pct)}%`;
+      document.getElementById('fill-percent').textContent = `${pct}%`;
+      document.getElementById('est-weight').textContent = `${totalKg.toFixed(1)} kg est.`;
+
+      const tierEl = document.getElementById('rec-tier');
+      const priceEl = document.getElementById('rec-price');
+      const noteEl = document.getElementById('rec-note');
+
+      if (totalPoints <= 38) {
+        recommendedBasket = 'small';
+        tierEl.textContent = 'SMALL BASKET';
+        priceEl.textContent = 'M70.00';
+        noteEl.textContent = totalPoints === 0
+          ? 'Add clothes on the left to measure your load.'
+          : 'Fits comfortably inside 1 Small Basket!';
+      } else if (totalPoints <= 70) {
+        recommendedBasket = 'medium';
+        tierEl.textContent = 'MEDIUM BASKET';
+        priceEl.textContent = 'M90.00';
+        noteEl.textContent = 'Ideal fit for our most popular Medium Basket.';
+      } else if (totalPoints <= 105) {
+        recommendedBasket = 'large';
+        tierEl.textContent = 'LARGE BASKET';
+        priceEl.textContent = 'M120.00';
+        noteEl.textContent = 'Full family load — fits 1 Large Basket!';
+      } else {
+        recommendedBasket = 'multi';
+        tierEl.textContent = '1 LARGE + 1 SMALL';
+        priceEl.textContent = 'M190.00';
+        noteEl.textContent = 'Extra big load! Best split across 2 baskets.';
+      }
+    }
+
+    function changeCloth(idx, delta) {
+      clothingItems[idx].count = Math.max(0, clothingItems[idx].count + delta);
+      renderVisualizer();
+    }
+
+    function resetVisualizer() {
+      clothingItems.forEach(i => i.count = 0);
+      renderVisualizer();
+    }
+
+    function applyMeasuredToCalculator() {
+      basketQty = { small: 0, medium: 0, large: 0 };
+      if (recommendedBasket === 'multi') {
+        basketQty.large = 1;
+        basketQty.small = 1;
+      } else {
+        basketQty[recommendedBasket] = 1;
+      }
+      syncQtyUI();
+      document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 4. Cost Calculator & Receipt
+    const prices = { small: 70, medium: 90, large: 120 };
+    let basketQty = { small: 0, medium: 1, large: 0 };
+
+    function quickSelectBasket(type) {
+      basketQty = { small: 0, medium: 0, large: 0 };
+      basketQty[type] = 1;
+      syncQtyUI();
+      document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function updateBasketQty(type, delta) {
+      basketQty[type] = Math.max(0, basketQty[type] + delta);
+      syncQtyUI();
+    }
+
+    function syncQtyUI() {
+      document.getElementById('qty-small').textContent = basketQty.small;
+      document.getElementById('qty-medium').textContent = basketQty.medium;
+      document.getElementById('qty-large').textContent = basketQty.large;
+      recalcTotal();
+    }
+
+    function recalcTotal() {
+      const lines = [];
+      let total = 0;
+
+      if (basketQty.small > 0) {
+        const sub = basketQty.small * prices.small;
+        total += sub;
+        lines.push(`<div class="flex justify-between"><span>${basketQty.small}× Small Basket (M70)</span><span class="font-bold">M${sub.toFixed(2)}</span></div>`);
+      }
+      if (basketQty.medium > 0) {
+        const sub = basketQty.medium * prices.medium;
+        total += sub;
+        lines.push(`<div class="flex justify-between"><span>${basketQty.medium}× Medium Basket (M90)</span><span class="font-bold">M${sub.toFixed(2)}</span></div>`);
+      }
+      if (basketQty.large > 0) {
+        const sub = basketQty.large * prices.large;
+        total += sub;
+        lines.push(`<div class="flex justify-between"><span>${basketQty.large}× Large Basket (M120)</span><span class="font-bold">M${sub.toFixed(2)}</span></div>`);
+      }
+
+      const prefs = [];
+      if (document.getElementById('pref-scent').checked) prefs.push('Extra Floral Scent');
+      if (document.getElementById('pref-separate').checked) prefs.push('Whites Separated');
+      if (document.getElementById('pref-sensitive').checked) prefs.push('Hypoallergenic');
+
+      if (prefs.length > 0) {
+        lines.push(`<div class="text-xs text-pink-300 pt-2">✓ Care: ${prefs.join(' • ')}</div>`);
+      }
+
+      const service = document.getElementById('cust-service').value;
+      lines.push(`<div class="text-xs text-cyan-300">📍 ${service}</div>`);
+
+      document.getElementById('receipt-lines').innerHTML = lines.length
+        ? lines.join('')
+        : '<p class="text-purple-300 italic">Select at least 1 basket on the left.</p>';
+      document.getElementById('grand-total').textContent = `M${total.toFixed(2)}`;
+    }
+
+    function sendWhatsAppOrder() {
+      const totalBaskets = basketQty.small + basketQty.medium + basketQty.large;
+      if (totalBaskets === 0) {
+        alert('Please add at least 1 laundry basket first!');
+        return;
+      }
+      const name = document.getElementById('cust-name').value.trim() || 'Customer';
+      const service = document.getElementById('cust-service').value;
+      const notes = document.getElementById('cust-notes').value.trim();
+      const total = document.getElementById('grand-total').textContent;
+
+      const items = [];
+      if (basketQty.small) items.push(`• ${basketQty.small}x Small Basket (M${basketQty.small * 70})`);
+      if (basketQty.medium) items.push(`• ${basketQty.medium}x Medium Basket (M${basketQty.medium * 90})`);
+      if (basketQty.large) items.push(`• ${basketQty.large}x Large Basket (M${basketQty.large * 120})`);
+
+      const prefs = [];
+      if (document.getElementById('pref-scent').checked) prefs.push('Extra Floral Scent');
+      if (document.getElementById('pref-separate').checked) prefs.push('Separate Whites');
+      if (document.getElementById('pref-sensitive').checked) prefs.push('Hypoallergenic');
+
+      let msg = `Hello Fresh & Bright Laundrymart! 🧺✨\nI'd like to book a laundry order:\n\n`;
+      msg += `*Name:* ${name}\n`;
+      msg += `*Baskets:*\n${items.join('\n')}\n`;
+      msg += `*Service:* ${service}\n`;
+      if (prefs.length) msg += `*Preferences:* ${prefs.join(', ')}\n`;
+      if (notes) msg += `*Notes:* ${notes}\n`;
+      msg += `\n*Estimated Total:* ${total}`;
+
+      // Uses Lesotho (+266) format for 62680349; opens WhatsApp directly
+      const waUrl = `https://wa.me/26662680349?text=${encodeURIComponent(msg)}`;
+      window.open(waUrl, '_blank');
+    }
+
+    // 5. Stain & Fabric Care Lab
+    const stains = [
+      {
+        name: '🍷 Red Wine & Juice',
+        badge: 'Oxygen Brightening',
+        title: 'Cold Enzyme Pre-Soak + Oxygen Lift',
+        desc: 'We never hit fruit or wine stains with hot water first (which locks them in). We apply an active oxygen brightener and cold enzyme flush so colours stay vibrant and whites stay crisp.'
+      },
+      {
+        name: '🍔 Cooking Oil & Grease',
+        badge: 'Deep Degreaser',
+        title: 'Targeted Surfactant Breakdown',
+        desc: 'Oil repels ordinary water. Our pre-wash degreaser breaks the lipid bond in collars, cuffs, and food splatters before a warm deep-clean cycle lifts it away completely.'
+      },
+      {
+        name: '⚽ Mud & Grass',
+        badge: 'Sports & Kids Care',
+        title: 'Bio-Enzyme Fibre Release',
+        desc: 'Chlorophyll and clay particles cling tightly to cotton weaves. We loosen dried soil first, then run a gentle agitation cycle that lifts dirt without roughing up the fabric.'
+      },
+      {
+        name: '👔 Yellow Collar / Sweat',
+        badge: 'Whites Revival',
+        title: 'pH-Balanced Brightening Wash',
+        desc: 'Deodorant and body oils build up over time. Our pH-balanced whitening soak restores brightness to school shirts, uniforms, and white tees without harsh chlorine damage.'
+      },
+      {
+        name: '🖊️ Ink & Makeup',
+        badge: 'Precision Spot Care',
+        title: 'Solvent-Safe Blot & Rinse',
+        desc: 'We isolate pigment stains so they never bleed onto the rest of your basket, lifting ink and foundation safely before full-drum washing.'
+      }
+    ];
+
+    function selectStain(idx) {
+      const tabs = document.getElementById('stain-tabs');
+      tabs.innerHTML = stains.map((s, i) => `
+        <button onclick="selectStain(${i})" class="px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold transition ${
+          i === idx
+            ? 'bg-pink-600 text-white shadow-lg shadow-pink-500/30'
+            : 'bg-white text-purple-950 border border-purple-200 hover:border-pink-400'
+        }">
+          ${s.name}
+        </button>
+      `).join('');
+
+      const active = stains[idx];
+      document.getElementById('stain-result').innerHTML = `
+        <span class="inline-block bg-pink-500/25 border border-pink-400/40 text-pink-200 text-xs font-bold px-3 py-1 rounded-full mb-3">${active.badge}</span>
+        <h3 class="font-display text-2xl font-bold text-white mb-2">${active.title}</h3>
+        <p class="text-purple-100 text-sm sm:text-base leading-relaxed">${active.desc}</p>
+      `;
+    }
+
+    // Initialize everything
+    renderVisualizer();
+    syncQtyUI();
+    selectStain(0);
+  </script>
+</body>
+  </html>
